@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f9;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      animation: slideInFromTop 0.8s ease-in-out;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      color: #333;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-section {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .form-section input,
+    .form-section select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-section input:focus,
+    .form-section select:focus {
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+      outline: none;
+    }
+
+    .important-note {
+      background: #fffbe6;
+      border: 1px solid #ffd966;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 10px 0;
+      animation: pulse 1.5s infinite;
+    }
+
+    .upload-section {
+      text-align: center;
+      border: 2px dashed #ccc;
+      border-radius: 4px;
+      padding: 20px;
+      background: #f9f9f9;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .upload-section:hover {
+      background-color: #eef;
+    }
+
+    .upload-section input {
+      display: none;
+    }
+
+    .upload-section label {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .upload-section label:hover {
+      background: #0056b3;
+    }
+
+    .file-details {
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease-in-out, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-around;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    footer .section {
+      flex: 1;
+      text-align: left;
+    }
+
+    footer .section h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    footer .section a {
+      color: #0066cc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    footer .section a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInFromTop {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 8px rgba(255, 217, 102, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 15px rgba(255, 217, 102, 0.8);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Welcome Mamta Sharma</h1>
+    </div>
+
+    <div class="form-container">
+      <div class="form-section">
+        <input type="text" placeholder="Name: Mamta Sharma" disabled>
+        <input type="email" placeholder="Email ID: MamtaSharma@NariDhan.org" disabled>
+        <input type="text" placeholder="Phone Number: XXXXXX001">
+        <select>
+          <option>Education Level: Secondary School</option>
+        </select>
+        <input type="text" placeholder="Occupation: Housewife">
+        <input type="text" placeholder="Date of Birth: 01-01-1967">
+        <input type="text" placeholder="Address: Vasant Vihar, New Delhi, India">
+        <input type="text" placeholder="City: Delhi">
+        <select>
+          <option>State Option: Delhi</option>
+        </select>
+        <select>
+          <option>Country Option: India</option>
+        </select>
+      </div>
+
+      <div class="form-section">
+        <input type="text" placeholder="Aadhar Card No: XXXXXX78">
+        <input type="text" placeholder="Pan Card No (Optional): ABCXXXXX">
+        <input type="text" placeholder="Alternative Mobile No: 123XXXXXXX">
+
+        <div class="important-note">
+          <strong>Important Note !!!</strong>
+          <p>Kindly Upload Your Aadhar Card, Pan Card Before Confirming Details</p>
+        </div>
+        <button id="confirm-btn">Confirm Details</button>
+      </div>
+
+      <div class="form-section upload-section">
+        <label for="file-upload">Choose a file or drag & drop it here</label>
+        <input type="file" id="file-upload" accept="image/*,.pdf,.mp4">
+        <div class="file-details" id="file-details">
+          <p>No file uploaded yet.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="section services">
+        <h3>Services</h3>
+        <a href="investment tools.html">Investments</a>
+        <a href="financial edu.html">Education</a>
+      </div>
+      <div class="section updates">
+        <h3>Latest Updates</h3>
+        <a href="https://cmladlibahna.mp.gov.in/">MP Government Schemes</a>
+        <a href="https://mksy.up.gov.in/">UP Government Schemes</a>
+      </div>
+      <div class="section resources">
+        <h3>Resources</h3>
+        <a href="Ai chat bot.html">AI Powered Learning Material</a>
+        <a href="Mentorship.html">Mentorship</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('file-upload');
+    const fileDetails = document.getElementById('file-details');
+    const confirmBtn = document.getElementById('confirm-btn');
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (file) {
+        fileDetails.innerHTML = `<p><strong>${file.name}</strong></p>
+                                 <p>${(file.size / 1024 / 1024).toFixed(2)} MB &#10004; Uploaded</p>`;
+      } else {
+        fileDetails.innerHTML = '<p>No file uploaded yet.</p>';
+      }
+    });
+
+    confirmBtn.addEventListener('click', () => {
+      window.location.href = 'Financial Hub.html';
+    });
+  </script>
+</body>
+</html>

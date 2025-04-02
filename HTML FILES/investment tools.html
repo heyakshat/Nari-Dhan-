@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Tools</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    @keyframes dropIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Page exit animation */
+    .page-exit {
+      animation: fadeOut 0.5s ease forwards;
+    }
+
+    /* Drop animation for sections */
+    .animate-drop {
+      animation: dropIn 0.5s ease forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-poppins animate-drop">
+  <header class="bg-green-600 text-white p-4 flex justify-between items-center">
+    <nav class="flex gap-4">
+      <a href="FinancialHub.html" class="hover:underline page-link">Home</a>
+      <a href="investment tools.html" class="hover:underline page-link">Services</a>
+      <a href="SavingCal.html" class="hover:underline page-link">Saving Calculator</a>
+      <a href="financial edu .html" class="hover:underline page-link">Resources</a>
+      <a href="Ai chat bot.html" class="hover:underline page-link">Chat with AI</a>
+      <a href="investment tools.html" class="hover:underline page-link">Know Your Investment</a>
+      <a href="aboutus.html" class="hover:underline page-link">About Us</a>
+      <a href="Budget.html" class="hover:underline page-link">Budget Planning</a>
+      <a href="contactus.html"class="hover:underline">Contact Us</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <input type="text" placeholder="Search here..." class="px-2 py-1 rounded focus:outline-none">
+      <img src="/Images/e.jpg" alt="User Icon" class="w-8 h-8 rounded-full">
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-8">
+    <h1 class="text-center text-2xl md:text-4xl font-bold mb-8 text-gray-800">Our Investment Tools</h1>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center transform transition-transform hover:scale-105 animate-drop">
+        <h2 class="text-xl font-bold text-blue-600 mb-4">Savings Account</h2>
+        <p class="text-gray-600 mb-4">Save Your Money With Our</p>
+        <a href="traditional.html">
+            <button onclick="handleClick(this)" class="bg-blue-600 text-white px-4 py-2 rounded transition-transform transform active:scale-90 hover:bg-blue-700 focus:ring focus:ring-blue-300">
+                Traditional Savings Accounts
+            </button>
+        </a>
+        <a href="highyeild.html">
+            <button onclick="handleClick(this)" class="bg-blue-600 text-white px-4 py-2 rounded mt-2 transition-transform transform active:scale-90 hover:bg-blue-700 focus:ring focus:ring-blue-300">
+                High-Yield Savings Accounts
+            </button>
+        </a>
+    </div>    
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center transform transition-transform hover:scale-105 animate-drop">
+        <h2 class="text-xl font-bold text-blue-600 mb-4">Government Schemes</h2>
+        <p class="text-gray-600 mb-4">Save And Invest With:</p>
+        <ul class="text-left text-gray-700 mb-4">
+          <li>• Public Provident Fund (PPF)</li>
+          <li>• Sukanya Samriddhi Yojana</li>
+          <li>• National Savings Certificates (NSCs)</li>
+          <li>• Mahila Samman Savings Certificate (MaSSC)</li>
+        </ul>
+        <a href="https://www.india.gov.in/my-government/schemes-0">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded transition-transform transform active:scale-90 hover:bg-blue-700 focus:ring focus:ring-blue-300">
+            Learn More
+          </button>
+        </a>
+        <button onclick="openModal()" class="bg-blue-600 text-white px-4 py-2 rounded mt-2 transition-transform transform active:scale-90 hover:bg-blue-700 focus:ring focus:ring-blue-300">
+          Apply Now
+        </button>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center transform transition-transform hover:scale-105 animate-drop">
+        <h2 class="text-xl font-bold text-blue-600 mb-4">Emergency Fund</h2>
+        <p class="text-gray-600 mb-4">Always Helpful In Need</p>
+        <div class="bg-gray-100 w-24 h-24 mx-auto flex items-center justify-center rounded-full border-4 border-blue-600 text-blue-600 font-bold text-lg mb-4">
+          ₹25,000
+        </div>
+        <button onclick="openEmergencyModal()" class="bg-blue-600 text-white px-4 py-2 rounded transition-transform transform active:scale-90 hover:bg-blue-700 focus:ring focus:ring-blue-300">
+          Access Emergency Funds
+        </button>
+      </div>
+      
+      <!-- Emergency Fund Modal -->
+      <div id="emergencyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-lg w-96">
+          <h2 class="text-lg font-bold mb-4 text-blue-600">Emergency Fund Information</h2>
+          <p class="text-gray-600 mb-4">
+            An emergency fund is a financial safety net for unexpected expenses or financial emergencies. It is highly recommended to have a fund equivalent to 3-6 months of your living expenses. 
+          </p>
+          <ul class="text-gray-600 mb-4 list-disc list-inside">
+            <li>Helps cover sudden medical expenses.</li>
+            <li>Provides a buffer during job loss.</li>
+            <li>Ensures financial security in unforeseen situations.</li>
+          </ul>
+          <p class="text-gray-600 mb-4">
+            Start saving today to build your emergency fund and ensure you're prepared for the unexpected!
+          </p>
+          <button onclick="closeEmergencyModal()" class="bg-blue-600 text-white px-4 py-2 rounded">Close</button>
+        </div>
+      </div>
+
+      <!-- Modal for Apply Now button -->
+      <div id="applyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-lg w-96">
+          <h2 class="text-lg font-bold mb-4 text-blue-600">Application Form</h2>
+          <form id="applicationForm">
+            <input type="text" placeholder="Enter your name" class="w-full p-2 mb-4 border border-gray-300 rounded" required>
+            <input type="email" placeholder="Enter your email" class="w-full p-2 mb-4 border border-gray-300 rounded" required>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
+          </form>
+          <button onclick="closeModal()" class="bg-gray-600 text-white px-4 py-2 rounded mt-2">Close</button>
+        </div>
+      </div>
+
+  </main>
+
+  <footer class="bg-green-600 text-white py-6 mt-8">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+      <div>
+        <h3 class="font-bold text-lg">Services</h3>
+        <a href="investment tools.html" class="block hover:underline">Investments</a>
+        <a href="financial edu.html" class="block hover:underline">Education</a>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Latest Updates</h3>
+        <a href="https://cmladlibahna.mp.gov.in/" class="block hover:underline">MP Government Schemes</a>
+        <a href="https://mksy.up.gov.in/" class="block hover:underline">UP Government Schemes</a>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Resources</h3>
+        <a href="Ai chat bot.html" class="block hover:underline">AI Powered Learning Material</a>
+        <a href="Mentoship.html" class="block hover:underline">Mentorship</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openEmergencyModal() {
+      document.getElementById('emergencyModal').classList.remove('hidden');
+    }
+
+    function closeEmergencyModal() {
+      document.getElementById('emergencyModal').classList.add('hidden');
+    }
+
+    function openModal() {
+      document.getElementById('applyModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.get
+      document.getElementById('applyModal').classList.add('hidden');
+    }
+
+    document.getElementById('applicationForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      alert('Your application has been submitted successfully!');
+      closeModal();
+    });
+
+    document.querySelectorAll('.page-link').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        document.body.classList.add('page-exit');
+        const targetUrl = event.target.href;
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 500);
+      });
+    });
+
+    function handleClick(button) {
+      button.classList.add("bg-green-600");
+      setTimeout(() => {
+        button.classList.remove("bg-green-600");
+      }, 200);
+    }
+  </script>
+</body>
+</html>

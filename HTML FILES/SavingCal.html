@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saving Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animated waves background */
+    .wave-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      opacity: 0.5;
+      animation: waveAnimation 12s infinite linear;
+    }
+
+    .wave:nth-child(1) {
+      background: radial-gradient(circle at 50% 50%, rgba(255, 204, 255, 0.5), transparent 70%);
+      animation-duration: 8s;
+    }
+
+    .wave:nth-child(2) {
+      background: radial-gradient(circle at 50% 50%, rgba(204, 255, 204, 0.5), transparent 70%);
+      animation-duration: 10s;
+    }
+
+    .wave:nth-child(3) {
+      background: radial-gradient(circle at 50% 50%, rgba(204, 204, 255, 0.5), transparent 70%);
+      animation-duration: 12s;
+    }
+
+    @keyframes waveAnimation {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      animation: particleAnimation 10s infinite ease-in-out;
+    }
+
+    .particle:nth-child(odd) {
+      animation-duration: 8s;
+    }
+
+    .particle:nth-child(even) {
+      animation-duration: 12s;
+    }
+
+    @keyframes particleAnimation {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-300px) translateX(50px);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-600px) translateX(100px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body class="relative font-sans bg-gradient-to-br from-purple-200 via-pink-100 to-blue-200 min-h-screen flex flex-col">
+  <!-- Background -->
+  <div class="wave-container">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <!-- Floating particles -->
+    <div class="particle" style="top: 50%; left: 20%;"></div>
+    <div class="particle" style="top: 70%; left: 50%;"></div>
+    <div class="particle" style="top: 80%; left: 30%;"></div>
+    <div class="particle" style="top: 40%; left: 70%;"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-green-600 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <nav class="flex gap-4">
+        <a href="FinancialHub.html" class="hover:underline">Home</a>
+        <a href="investment tools.html" class="hover:underline">Services</a>
+        <a href="SavingCal.html" class="hover:underline">Saving Calculator</a>
+        <a href="financial edu .html" class="hover:underline">Resources</a>
+        <a href="Ai chat bot.html" class="hover:underline">Chat with AI</a>
+        <a href="investment tools.html" class="hover:underline">Know Your Investment</a>
+        <a href="aboutus.html" class="hover:underline">About Us</a>
+        <a href="Budget.html" class="hover:underline">Budget Planning</a>
+        <a href="contactus.html"class="hover:underline">Contact Us</a>
+      </nav>
+      <div class="relative group">
+        <img src="/Images/e.jpg" alt="User Icon" class="w-8 h-8 rounded-full cursor-pointer">
+        <div class="absolute left-1/2 -translate-x-1/2 top-10 bg-gray-800 text-white text-sm py-2 px-4 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+          Profile
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="max-w-3xl mx-auto bg-white p-6 mt-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Plan Your Savings</h1>
+    <form id="savingForm" class="space-y-4">
+      <div>
+        <label for="monthlySaving" class="block font-medium text-gray-700">Monthly Saving Amount (₹):</label>
+        <input type="number" id="monthlySaving" placeholder="Enter amount" required
+          class="w-full mt-2 px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-green-500">
+      </div>
+      <div>
+        <label for="years" class="block font-medium text-gray-700">Number of Years:</label>
+        <input type="number" id="years" placeholder="Enter years" required
+          class="w-full mt-2 px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-green-500">
+      </div>
+      <div>
+        <label for="targetSaving" class="block font-medium text-gray-700">Target Saving Amount (₹):</label>
+        <input type="number" id="targetSaving" placeholder="Enter target amount" required
+          class="w-full mt-2 px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-green-500">
+      </div>
+      <div class="flex flex-wrap gap-4 justify-between">
+        <button type="button" onclick="calculateSavings()" 
+          class="w-full md:w-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 active:scale-95 transition-transform">
+          Calculate Total Savings
+        </button>
+        <button type="button" onclick="calculateTimeToTarget()" 
+          class="w-full md:w-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 active:scale-95 transition-transform">
+          Time to Target
+        </button>
+        <button type="reset" 
+          class="w-full md:w-auto bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 active:scale-95 transition-transform">
+          Reset
+        </button>
+      </div>
+    </form>
+    <div id="result" class="mt-6 hidden bg-green-50 text-green-700 p-4 rounded shadow">
+      <div id="savingsResult">Your total savings will be <span id="totalSavings" class="font-bold"></span>.</div>
+      <div id="timeResult" class="hidden mt-2">It will take you <span id="requiredMonths" class="font-bold"></span> months to reach your target.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white py-6 mt-10">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div>
+        <h3 class="font-bold mb-2">Services</h3>
+        <a href="investment tools.html" class="block hover:underline">Investments</a>
+        <a href="financial edu .html" class="block hover:underline">Education</a>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Latest Updates</h3>
+        <a href="https://cmladlibahna.mp.gov.in/" class="block hover:underline">MP Government Schemes</a>
+        <a href="https://mksy.up.gov.in/" class="block hover:underline">UP Government Schemes</a>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Resources</h3>
+        <a href="Ai chat bot.html" class="block hover:underline">AI Powered Learning Material</a>
+        <a href="Mentoship.html" class="block hover:underline">Mentorship</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function calculateSavings() {
+      const monthlySaving = parseFloat(document.getElementById('monthlySaving').value);
+      const years = parseInt(document.getElementById('years').value);
+
+      if (isNaN(monthlySaving) || isNaN(years) || years <= 0 || monthlySaving <= 0) {
+        alert("Please enter valid positive values.");
+        return;
+      }
+
+      const totalSavings = monthlySaving * years * 12;
+      document.getElementById('totalSavings').innerText = `₹${totalSavings.toFixed(2)}`;
+      document.getElementById('savingsResult').classList.remove('hidden');
+      document.getElementById('timeResult').classList.add('hidden');
+      document.getElementById('result').classList.remove('hidden');
+    }
+
+    function calculateTimeToTarget() {
+      const monthlySaving = parseFloat(document.getElementById('monthlySaving').value);
+      const targetSaving = parseFloat(document.getElementById('targetSaving').value);
+
+      if (isNaN(monthlySaving) || isNaN(targetSaving) || targetSaving <= 0 || monthlySaving <= 0) {
+        alert("Please enter valid positive values.");
+        return;
+      }
+
+      const months = Math.ceil(targetSaving / monthlySaving);
+      document.getElementById('requiredMonths').innerText = `${months}`;
+      document.getElementById('savingsResult').classList.add('hidden');
+      document.getElementById('timeResult').classList.remove('hidden');
+      document.getElementById('result').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

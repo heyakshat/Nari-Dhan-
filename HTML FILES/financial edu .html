@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Education Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-green-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+          <nav class="flex gap-4">
+            <a href="FinancialHub.html" class="hover:underline">Home</a>
+            <a href="investment tools.html" class="hover:underline">Services</a>
+            <a href="SavingCal.html" class="hover:underline">Saving Calculator</a>
+            <a href="financial edu .html" class="hover:underline">Resources</a>
+            <a href="Ai chat bot.html" class="hover:underline">Chat with AI</a>
+            <a href="investment tools.html" class="hover:underline">Know Your Investment</a>
+            <a href="aboutus.html" class="hover:underline">About Us</a>
+            <a href="Budget.html" class="hover:underline">Budget Planning</a>
+            <a href="contactus.html"class="hover:underline">Contact Us</a>
+          </nav>
+          <div class="relative group">
+            <img src="/Images/e.jpg" alt="User Icon" class="w-8 h-8 rounded-full cursor-pointer">
+            <div class="absolute left-1/2 -translate-x-1/2 top-10 bg-gray-800 text-white text-sm py-2 px-4 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              Profile
+            </div>
+          </div>
+        </div>
+</header>
+
+  <!-- Main Container -->
+  <div class="container mx-auto px-4 mt-6 flex gap-6">
+    <!-- Filters Sidebar -->
+    <aside class="w-1/4 bg-white p-4 rounded shadow">
+      <h4 class="font-bold mb-4">Filters</h4>
+      <div>
+        <label class="block"><input type="checkbox" checked class="mr-2">Budgeting</label>
+        <label class="block"><input type="checkbox" checked class="mr-2">Personal Finance</label>
+        <label class="block"><input type="checkbox" checked class="mr-2">Credit Score</label>
+      </div>
+      <hr class="my-4">
+      <h4 class="font-bold mb-4">Language</h4>
+      <div>
+        <label class="block"><input type="checkbox" class="mr-2">Hindi</label>
+        <label class="block"><input type="checkbox" class="mr-2">Urdu</label>
+        <label class="block"><input type="checkbox" class="mr-2">English</label>
+      </div>
+      <hr class="my-4">
+      <h4 class="font-bold mb-4">Availability</h4>
+      <div>
+        <label class="block"><input type="checkbox" class="mr-2">Archived</label>
+        <label class="block"><input type="checkbox" checked class="mr-2">Available Now</label>
+        <label class="block"><input type="checkbox" class="mr-2">Upcoming</label>
+      </div>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="flex-1">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white rounded shadow overflow-hidden">
+          <img src="/Images/a.jpg" alt="Investing for Beginners" class="w-full h-32 object-cover">
+          <div class="p-4 text-center">
+            <h5 class="font-bold">Investing For Beginners</h5>
+            <a href="https://www.youtube.com/watch?v=lNdOtlpmH5U&t=55s" target="_blank" class="text-blue-500 hover:underline">Watch Now</a>
+            <p class="text-gray-600 text-sm mt-2">60 Mins</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white rounded shadow overflow-hidden">
+          <img src="/Images/b.jpg" alt="Budgeting for Beginners" class="w-full h-32 object-cover">
+          <div class="p-4 text-center">
+            <h5 class="font-bold">Budgeting For Beginners</h5>
+            <a href="https://www.youtube.com/watch?v=AIOR1x7fPcQ" target="_blank" class="text-blue-500 hover:underline">Watch Now</a>
+            <p class="text-gray-600 text-sm mt-2">30 Mins</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white rounded shadow overflow-hidden">
+          <img src="/Images/c.jpg" alt="Personal Finance" class="w-full h-32 object-cover">
+          <div class="p-4 text-center">
+            <h5 class="font-bold">व्यक्तिगत वित्त</h5>
+            <a href="https://www.youtube.com/watch?v=jwNzllEj4Fc" target="_blank" class="text-blue-500 hover:underline">Watch Now</a>
+            <p class="text-gray-600 text-sm mt-2">55 Mins</p>
+          </div>
+        </div>
+        <!-- Add more cards as needed -->
+      </div>
+    </main>
+  </div>
+
+  <footer class="bg-green-600 text-white py-6 mt-8">
+    <div class="container mx-auto flex justify-around">
+        <div class="">
+            <h3 class="font-bold">Services</h3>
+            <a href="investment tools.html" class="block hover:underline">Investments</a>
+            <a href="financial edu .html" class="block hover:underline">Education</a>
+        </div>
+        <div class="">
+            <h3 class="font-bold">Latest Updates</h3>
+            <a href="https://cmladlibahna.mp.gov.in/" class="block hover:underline">MP Government Schemes</a>
+            <a href="https://mksy.up.gov.in/" class="block hover:underline">UP Government Schemes</a>
+        </div>
+        <div class="">
+            <h3 class="font-bold">Resources</h3>
+            <a href="Ai chat bot.html" class="block hover:underline">AI Powered Learning Material</a>
+            <a href="Mentoship.html" class="block hover:underline">Mentorship</a>
+        </div>
+    </div>
+</footer>
+
+  <script>
+    function logout() {
+      alert('Logging out...');
+      window.location.href = "FrontPage.html";
+    }
+  </script>
+</body>
+</html>

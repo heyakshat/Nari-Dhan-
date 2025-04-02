@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traditional Savings Account</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes dropAnimation {
+      0% {
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .drop-animation {
+      animation: dropAnimation 0.5s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <header class="bg-green-600 text-white p-4 flex justify-between items-center">
+        <nav class="flex gap-4">
+          <a href="FinancialHub.html" class="hover:underline page-link">Home</a>
+          <a href="investment tools.html" class="hover:underline page-link">Services</a>
+          <a href="SavingCal.html" class="hover:underline page-link">Saving Calculator</a>
+          <a href="financial edu .html" class="hover:underline page-link">Resources</a>
+          <a href="Ai chat bot.html" class="hover:underline page-link">Chat with AI</a>
+          <a href="investment tools.html" class="hover:underline page-link">Know Your Investment</a>
+          <a href="aboutus.html" class="hover:underline page-link">About Us</a>
+          <a href="Budget.html" class="hover:underline page-link">Budget Planning</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <input type="text" placeholder="Search here..." class="px-2 py-1 rounded focus:outline-none">
+          <img src="/Images/e.jpg" alt="User Icon" class="w-8 h-8 rounded-full">
+        </div>
+</header>
+
+  <main class="max-w-7xl mx-auto p-8">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-semibold text-gray-800">Traditional Savings Account</h1>
+      <p class="text-gray-600 mt-4">Manage your savings with ease. View balance, interest rates, and more.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Account Balance Card -->
+      <div class="card bg-white p-6 rounded-lg shadow-lg drop-animation">
+        <h2 class="text-xl font-semibold text-gray-800">Account Balance</h2>
+        <p class="text-3xl font-bold text-green-600 mt-4">₹ 50,000</p>
+      </div>
+
+      <!-- Interest Rate Card -->
+      <div class="card bg-white p-6 rounded-lg shadow-lg drop-animation">
+        <h2 class="text-xl font-semibold text-gray-800">Interest Rate</h2>
+        <p class="text-3xl font-bold text-blue-600 mt-4">4.5% per annum</p>
+      </div>
+
+      <!-- Recent Transactions Card -->
+      <div class="card bg-white p-6 rounded-lg shadow-lg drop-animation">
+        <h2 class="text-xl font-semibold text-gray-800">Recent Transactions</h2>
+        <ul class="mt-4 space-y-2 text-gray-600">
+          <li>₹ 5,000 - Deposit (Jan 1, 2025)</li>
+          <li>₹ 2,000 - Withdrawal (Dec 28, 2024)</li>
+          <li>₹ 1,500 - Deposit (Dec 25, 2024)</li>
+        </ul>
+      </div>
+
+      <!-- Account Type Card -->
+      <div class="card bg-white p-6 rounded-lg shadow-lg drop-animation">
+        <h2 class="text-xl font-semibold text-gray-800">Account Type</h2>
+        <p class="text-xl text-gray-600 mt-4">Traditional Savings Account</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-green-600 text-white py-6 mt-8">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+      <div>
+        <h3 class="font-bold text-lg">Services</h3>
+        <a href="investment tools.html" class="block hover:underline">Investments</a>
+        <a href="financial edu.html" class="block hover:underline">Education</a>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Latest Updates</h3>
+        <a href="https://cmladlibahna.mp.gov.in/" class="block hover:underline">MP Government Schemes</a>
+        <a href="https://mksy.up.gov.in/" class="block hover:underline">UP Government Schemes</a>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Resources</h3>
+        <a href="Ai chat bot.html" class="block hover:underline">AI Powered Learning Material</a>
+        <a href="Mentoship.html" class="block hover:underline">Mentorship</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

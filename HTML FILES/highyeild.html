@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High-Yield Savings Account</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Drop animation for the card */
+    @keyframes dropAnimation {
+      0% {
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .drop-animation {
+      animation: dropAnimation 0.5s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <header class="bg-green-600 text-white p-4 flex justify-between items-center">
+    <nav class="flex gap-4">
+      <a href="FinancialHub.html" class="hover:underline page-link">Home</a>
+      <a href="investment tools.html" class="hover:underline page-link">Services</a>
+      <a href="SavingCal.html" class="hover:underline page-link">Saving Calculator</a>
+      <a href="financial edu .html" class="hover:underline page-link">Resources</a>
+      <a href="Ai chat bot.html" class="hover:underline page-link">Chat with AI</a>
+      <a href="investment tools.html" class="hover:underline page-link">Know Your Investment</a>
+      <a href="aboutus.html" class="hover:underline page-link">About Us</a>
+      <a href="Budget.html" class="hover:underline page-link">Budget Planning</a>
+      <a href="contactus.html"class="hover:underline">Contact Us</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <input type="text" placeholder="Search here..." class="px-2 py-1 rounded focus:outline-none">
+      <img src="/Images/e.jpg" alt="User Icon" class="w-8 h-8 rounded-full">
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto p-8">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-semibold text-gray-800">High-Yield Savings Account</h1>
+      <p class="text-gray-600 mt-4">Maximize your savings potential with our high-yield savings account options!</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow-xl drop-animation">
+        <h3 class="text-xl font-semibold text-gray-800">Interest Rates</h3>
+        <p class="text-gray-600 mt-2">Enjoy up to <span class="text-green-600 font-bold">4.5% APY</span> on your deposits!</p>
+      </div>
+
+      <!-- Card 2: Instant Access -->
+      <div class="bg-white p-6 rounded-lg shadow-xl drop-animation">
+        <h3 class="text-xl font-semibold text-gray-800">Instant Access</h3>
+        <p class="text-gray-600 mt-2">Access your funds anytime, anywhere with no fees or penalties.</p>
+      </div>
+
+      <!-- Card 3: No Fees -->
+      <div class="bg-white p-6 rounded-lg shadow-xl drop-animation">
+        <h3 class="text-xl font-semibold text-gray-800">No Fees</h3>
+        <p class="text-gray-600 mt-2">We believe in transparent banking with zero monthly maintenance fees.</p>
+      </div>
+    </div>
+
+    <!-- Card Section for Features -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mt-8">
+      <!-- Card 4: Secure and Safe -->
+      <div class="bg-white p-6 rounded-lg shadow-xl drop-animation">
+        <h3 class="text-xl font-semibold text-gray-800">Secure and Safe</h3>
+        <p class="text-gray-600 mt-2">Our accounts are FDIC-insured up to the maximum allowed by law.</p>
+      </div>
+
+      <!-- Card 5: No Minimum Balance -->
+      <div class="bg-white p-6 rounded-lg shadow-xl drop-animation">
+        <h3 class="text-xl font-semibold text-gray-800">No Minimum Balance</h3>
+        <p class="text-gray-600 mt-2">Enjoy the freedom of no minimum balance requirement to earn high interest.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-green-600 text-white py-6 mt-8">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+      <div>
+        <h3 class="font-bold text-lg">Services</h3>
+        <a href="investment tools.html" class="block hover:underline">Investments</a>
+        <a href="financial edu.html" class="block hover:underline">Education</a>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Latest Updates</h3>
+        <a href="https://cmladlibahna.mp.gov.in/" class="block hover:underline">MP Government Schemes</a>
+        <a href="https://mksy.up.gov.in/" class="block hover:underline">UP Government Schemes</a>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Resources</h3>
+        <a href="Ai chat bot.html" class="block hover:underline">AI Powered Learning Material</a>
+        <a href="Mentoship.html" class="block hover:underline">Mentorship</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

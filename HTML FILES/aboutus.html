@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - NariDhan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes dropIn {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .animate-drop {
+      animation: dropIn 1s ease-out forwards;
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <header class="bg-green-600 text-white p-4 flex justify-between items-center animate-drop">
+    <nav class="flex gap-4">
+        <a href="FinancialHub.html" class="hover:underline">Home</a>
+        <a href="investment tools.html" class="hover:underline">Services</a>
+        <a href="SavingCal.html" class="hover:underline">Saving Calculator</a>
+        <a href="financial edu .html" class="hover:underline">Resources</a>
+        <a href="Ai chat bot.html" class="hover:underline">Chat with AI</a>
+        <a href="investment tools.html" class="hover:underline">Know Your Investment</a>
+        <a href="aboutus.html" class="hover:underline">About Us</a>
+        <a href="Budget.html" class="hover:underline">Budget Planning</a>
+        <a href="contactus.html"class="hover:underline">Contact Us</a>
+    </nav>
+    <div class="flex items-center gap-4">
+        <div class="w-8 h-8">
+            <img src="/Images/e.jpg" alt="User Icon" class="rounded-full">
+        </div>
+        <a href="FrontPage.html"<button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded" onclick="logout()">Logout</button></a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-8">
+    <section class="about-section grid md:grid-cols-2 gap-8 animate-fade-in-up">
+      <div class="about-text space-y-4">
+        <h1 class="text-4xl font-bold text-gray-800">About <span class="text-green-600">NariDhan</span></h1>
+        <p class="text-lg text-gray-700">
+          At NariDhan, we empower women by providing financial mentorship, investment guidance, and budget planning tools tailored specifically to their needs. Our mission is to enable every woman to take control of her financial future with confidence.
+        </p>
+        <p class="text-lg text-gray-700">
+          With years of expertise in financial planning and an inclusive approach, we believe in building a supportive community where women can learn, grow, and achieve their dreams.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="/Images/illustration.png" alt="About NariDhan" class="w-full rounded-lg shadow-lg">
+      </div>
+    </section>
+
+    <section class="values-section mt-16 animate-fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Our Core Values</h2>
+      <div class="values-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center">
+          <h3 class="text-xl font-semibold text-green-600 mb-4">Empowerment</h3>
+          <p class="text-gray-600">We strive to empower women by providing them with tools, knowledge, and confidence to manage their finances effectively.</p>
+        </div>
+        <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center">
+          <h3 class="text-xl font-semibold text-green-600 mb-4">Community</h3>
+          <p class="text-gray-600">We foster a strong and inclusive community where women can share insights, challenges, and achievements.</p>
+        </div>
+        <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center">
+          <h3 class="text-xl font-semibold text-green-600 mb-4">Integrity</h3>
+          <p class="text-gray-600">Our guidance is based on transparency, honesty, and commitment to delivering the best possible financial solutions.</p>
+        </div>
+        <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center">
+          <h3 class="text-xl font-semibold text-green-600 mb-4">Growth</h3>
+          <p class="text-gray-600">We encourage continuous learning and growth, helping women make informed financial decisions at every stage of life.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section mt-16 animate-fade-in-up">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Meet Our Team</h2>
+      <div class="team-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="team-member bg-white p-6 rounded-lg shadow-lg text-center">
+          <img src="/Images/ashish.jpg" alt="Ashish Kumar Upadhyay" class="w-32 h-32 rounded-full mx-auto mb-4">
+          <h3 class="text-xl font-semibold text-gray-800">Ashish Kumar Upadhyay</h3>
+          <p class="text-gray-600">Founder & CEO (NariDhan)</p>
+        </div>
+        <div class="team-member bg-white p-6 rounded-lg shadow-lg text-center">
+          <img src="/Images/pic-2.jpg" alt="Akash Pratap Singh" class="w-32 h-32 rounded-full mx-auto mb-4">
+          <h3 class="text-xl font-semibold text-gray-800">Akash Pratap Singh</h3>
+          <p class="text-gray-600">Chief Financial Advisor & CFO (NariDhan)</p>
+        </div>
+        <div class="team-member bg-white p-6 rounded-lg shadow-lg text-center">
+          <img src="/Images/pic-3.jpg" alt="Akshat Sharma" class="w-32 h-32 rounded-full mx-auto mb-4">
+          <h3 class="text-xl font-semibold text-gray-800">Akshat Sharma</h3>
+          <p class="text-gray-600">Community Manager</p>
+        </div>
+        <div class="team-member bg-white p-6 rounded-lg shadow-lg text-center">
+          <img src="/Images/pic-4.jpg" alt="Gaurav Gupta" class="w-32 h-32 rounded-full mx-auto mb-4">
+          <h3 class="text-xl font-semibold text-gray-800">Gaurav Gupta</h3>
+          <p class="text-gray-600">Investment Specialist</p>
+        </div>
+        <div class="team-member bg-white p-6 rounded-lg shadow-lg text-center">
+          <img src="/Images/pic-5.jpg" alt="Aniket Singh Chauhan" class="w-32 h-32 rounded-full mx-auto mb-4">
+          <h3 class="text-xl font-semibold text-gray-800">Aniket Singh Chauhan</h3>
+          <p class="text-gray-600">Technology Lead & Manager</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-green-600 text-white py-6 mt-8">
+    <div class="container mx-auto flex justify-around">
+        <div class="">
+            <h3 class="font-bold">Services</h3>
+            <a href="investment tools.html" class="block hover:underline">Investments</a>
+            <a href="financial edu .html" class="block hover:underline">Education</a>
+        </div>
+        <div class="">
+            <h3 class="font-bold">Latest Updates</h3>
+            <a href="https://cmladlibahna.mp.gov.in/" class="block hover:underline">MP Government Schemes</a>
+            <a href="https://mksy.up.gov.in/" class="block hover:underline">UP Government Schemes</a>
+        </div>
+        <div class="">
+            <h3 class="font-bold">Resources</h3>
+            <a href="Ai chat bot.html" class="block hover:underline">AI Powered Learning Material</a>
+            <a href="Mentoship.html" class="block hover:underline">Mentorship</a>
+        </div>
+    </div>
+  </footer>
+</body>
+</html>

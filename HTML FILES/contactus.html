@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - NariDhan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2, p {
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+    header nav a:hover {
+      color: #ff6b81;
+    }
+    .btn-budget {
+      background-color: #ff6b81;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .main-container {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .main-container h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .main-container p {
+      margin-bottom: 30px;
+      color: #666;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #ff6b81;
+      outline: none;
+    }
+    .form-group textarea {
+      resize: none;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #ff6b81;
+      color: white;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+    .btn-submit:hover {
+      background: #ff3b61;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 30px;
+      background-color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-top: 1px solid #ddd;
+    }
+    footer .links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    footer .links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    footer .links a:hover {
+      color: #ff6b81;
+    }
+    footer p {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-green-600 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <nav class="flex gap-4">
+        <a href="FinancialHub.html" class="hover:underline">Home</a>
+        <a href="investment tools.html" class="hover:underline">Services</a>
+        <a href="SavingCal.html" class="hover:underline">Saving Calculator</a>
+        <a href="financial edu .html" class="hover:underline">Resources</a>
+        <a href="Ai chat bot.html" class="hover:underline">Chat with AI</a>
+        <a href="investment tools.html" class="hover:underline">Know Your Investment</a>
+        <a href="aboutus.html" class="hover:underline">About Us</a>
+        <a href="Budget.html" class="hover:underline">Budget Planning</a>
+        <a href="contactus.html"class="hover:underline">Contact Us</a>
+      </nav>
+      <div class="relative group">
+        <img src="/Images/e.jpg" alt="User Icon" class="w-8 h-8 rounded-full cursor-pointer">
+        <div class="absolute left-1/2 -translate-x-1/2 top-10 bg-gray-800 text-white text-sm py-2 px-4 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+          Profile
+        </div>
+      </div>
+    </div>
+</header>
+
+  <!-- Main Section -->
+  <div class="main-container">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Feel free to reach out with any questions, feedback, or support requests.</p>
+    <div class="contact-form">
+      <form action="/submit-contact" method="post">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="links">
+      <a href="FinancialHub.html">Services</a>
+      <a href="investment tools.html">Investments</a>
+      <a href="financial edu .html">Education</a>
+    </div>
+    <p>&copy; 2025 NariDhan. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
