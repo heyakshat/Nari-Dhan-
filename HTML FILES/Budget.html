@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enhanced Budget Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -24,7 +23,7 @@
     </nav>
     <div class="flex items-center gap-4">
         <div class="w-8 h-8">
-            <img src="/Images/e.jpg" alt="User Icon" class="rounded-full">
+            <img src="Images/e.jpg" alt="User Icon" class="rounded-full">
         </div>
         <a href="FrontPage.html"<button class="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded" onclick="logout()">Logout</button></a>
     </div>
@@ -34,9 +33,7 @@
     <div class="welcome-section text-center mb-8">
       <h1 class="text-3xl font-semibold text-gray-800">Welcome back, <span class="text-green-600">Mamta Sharma</span></h1>
     </div>
-
     <div class="dashboard-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <!-- Invested Amount Card -->
       <div class="card bg-gradient-to-r from-green-400 to-teal-400 p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl text-center">
         <h2 class="text-xl font-semibold text-white">Invested Amount</h2>
         <div class="circular-chart mt-4">
@@ -45,8 +42,6 @@
           </div>
         </div>
       </div>
-
-      <!-- This Month's Cashflow Card -->
       <div class="card bg-gradient-to-r from-indigo-500 to-purple-600 p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
         <h2 class="text-xl font-semibold text-white">This Month's Cashflow</h2>
         <div class="cashflow-item mt-4 text-white">
@@ -58,8 +53,6 @@
           <progress value="50" max="100" class="w-full h-2 bg-gray-300 rounded-full"></progress>
         </div>
       </div>
-
-      <!-- Budget Allocation Card -->
       <div class="card bg-gradient-to-r from-pink-500 to-orange-500 p-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
         <h2 class="text-xl font-semibold text-white">Budget Allocation by Categories</h2>
         <canvas id="pieChart" class="mt-6"></canvas>
@@ -129,6 +122,6 @@
     </div>
 </footer>
 
-  <script src="/JS/pie.js"></script>
+  <script src="JS/pie.js"></script>
 </body>
 </html>
