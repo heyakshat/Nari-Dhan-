@@ -1,0 +1,8 @@
+{
+    "routes": [
+      { "src": "/js/(.*)", "dest": "/assets/js/$1" },
+      { "src": "/css/(.*)", "dest": "/assets/css/$1" },
+      { "src": "/images/(.*)", "dest": "/assets/images/$1" }
+    ]
+  }
+  
