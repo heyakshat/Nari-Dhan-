@@ -1,8 +1,9 @@
 {
-    "routes": [
-      { "src": "/JS/(.*)", "dest": "/JS/$1" },
-      { "src": "/CSS/(.*)", "dest": "/CSS/$1" },
-      { "src": "/Images/(.*)", "dest": "/Images/$1" }
-    ]
-  }
+  "routes": [
+    { "src": "/JS/(.*)", "dest": "/js/$1" },
+    { "src": "/CSS/(.*)", "dest": "/css/$1" },
+    { "src": "/HTML/(.*)", "dest": "/html/$1" }
+  ]
+}
+
   
