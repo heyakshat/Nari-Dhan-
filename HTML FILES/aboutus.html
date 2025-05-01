@@ -6,32 +6,135 @@
   <title>About Us - NariDhan</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes dropIn {
-      0% {
-        transform: translateY(-100px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    .animate-drop {
-      animation: dropIn 1s ease-out forwards;
+    :root {
+        --primary-color: #4CAF50;
+        --secondary-color: #673AB7;
+        --text-color: #333;
+        --light-bg: #f8f9fa;
+        --dark-bg: #1a1a1a;
+        --transition: all 0.3s ease;
     }
 
+    /* Animations */
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes dropIn {
+        0% {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* Header animations */
+    .animate-drop {
+        animation: dropIn 1s ease-out forwards;
+    }
+
+    /* Section animations */
     .animate-fade-in-up {
-      animation: fadeInUp 1s ease-out forwards;
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    /* Card animations */
+    .value-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-member {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .team-member:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Image animations */
+    .about-image img {
+        transition: all 0.3s ease;
+    }
+
+    .about-image img:hover {
+        transform: scale(1.02);
+    }
+
+    /* Button animations */
+    button {
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Link animations */
+    a {
+        transition: all 0.3s ease;
+    }
+
+    a:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Team member hover effects */
+    .team-member:hover .team-member-name {
+        color: var(--primary-color);
+    }
+
+    .team-member:hover .team-member-role {
+        color: var(--secondary-color);
+    }
+
+    /* Value card hover effects */
+    .value-card:hover h3 {
+        color: var(--secondary-color);
+    }
+
+    /* Footer animations */
+    footer {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    footer a {
+        transition: all 0.3s ease;
+    }
+
+    footer a:hover {
+        transform: translateY(-2px);
+        color: var(--primary-color);
     }
 
   </style>

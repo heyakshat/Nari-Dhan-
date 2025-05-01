@@ -7,6 +7,14 @@
     <title>NariDhan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #673AB7;
+            --text-color: #fff;
+            --bg-overlay: rgba(0, 0, 0, 0.85);
+            --transition: all 0.3s ease;
+        }
+
         body,
         html {
             margin: 0;
@@ -18,37 +26,69 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            overflow: hidden;
         }
 
         .container {
             text-align: center;
-            background: rgba(0, 0, 0, 0.85);
+            background: var(--bg-overlay);
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 25px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
             max-width: 600px;
             margin-left: 40px;
-            color: white;
+            color: var(--text-color);
+            transform: translateY(0);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .title {
             font-size: 4rem;
             font-weight: 800;
-            color: hsl(0, 0%, 100%);
+            color: var(--text-color);
             letter-spacing: 3px;
             text-transform: uppercase;
-            animation: gradientText 4s infinite alternate;
             margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .subtitle {
             font-size: 1.5rem;
-            color: #ccc;
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 30px;
+            line-height: 1.6;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .buttons {
             margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -59,12 +99,29 @@
             border-radius: 30px;
             cursor: pointer;
             margin: 10px;
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-login {
-            background: #4CAF50;
-            color: #fff;
+            background: var(--primary-color);
+            color: var(--text-color);
             box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
         }
 
@@ -75,8 +132,8 @@
         }
 
         .btn-register {
-            background: #673AB7;
-            color: #fff;
+            background: var(--secondary-color);
+            color: var(--text-color);
             box-shadow: 0 4px 10px rgba(103, 58, 183, 0.3);
         }
 
@@ -86,89 +143,35 @@
             box-shadow: 0 8px 20px rgba(103, 58, 183, 0.5);
         }
 
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+        @media (max-width: 768px) {
+            .container {
+                margin-left: 20px;
+                padding: 30px;
+            }
+
+            .title {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 12px 40px;
+                font-size: 1.1rem;
+            }
         }
 
-        .modal-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
+        @media (max-width: 480px) {
+            .buttons {
+                flex-direction: column;
+            }
 
-        .modal-content h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .modal-content input {
-            width: 90%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .modal-content button {
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background: #4CAF50;
-            color: #fff;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .modal-content button:hover {
-            background: #45a049;
-        }
-
-        .modal-content .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            color: #888;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .modal-content .close:hover {
-            color: #333;
-        }
-
-        #password-strength {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .weak {
-            color: red;
-        }
-
-        .medium {
-            color: orange;
-        }
-
-        .strong {
-            color: green;
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -179,169 +182,11 @@
         <div class="title">NariDhan</div>
         <div class="subtitle">Unlocking Financial Empowerment with AI</div>
         <div class="buttons">
-            <button class="btn btn-login" onclick="openLoginModal()">Login</button>
-            <button class="btn btn-register" onclick="openRegisterModal()">Register</button>
+            <a href="FinancialHub.html"><button class="btn btn-login">Login</button></a>
+            <a href="register.html"><button class="btn btn-register">Register</button></a>
         </div>
     </div>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Login</h2>
-            <input type="email" id="login-email" placeholder="Enter your email" required>
-            <input type="password" id="login-password" placeholder="Enter your password" required>
-            <button onclick="loginUser()">Login</button>
-            <div id="login-error" style="color: red; margin-top: 10px;"></div>
-        </div>
-    </div>
-
-    <!-- Register Modal -->
-    <div class="modal" id="registerModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRegisterModal()">&times;</span>
-            <h2>Register</h2>
-            <input type="text" id="register-name" placeholder="Enter your name" required>
-            <input type="email" id="register-email" placeholder="Enter your email" required>
-            <input type="password" id="register-password" placeholder="Enter your password" required oninput="checkPasswordStrength()">
-            <div id="password-strength"></div>
-            <button onclick="registerUser()">Register</button>
-            <div id="register-error" style="color: red; margin-top: 10px;"></div>
-        </div>
-    </div>
-
-    <script>
-        // Function to get CSRF token from cookies (required for Django POST requests)
-        function getCSRFToken() {
-            const csrfToken = document.cookie.match(/csrftoken=([^;]+)/);
-            return csrfToken ? csrfToken[1] : '';
-        }
-
-        // Open login modal
-        function openLoginModal() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-
-        // Close login modal
-        function closeLoginModal() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-
-        // Open register modal
-        function openRegisterModal() {
-            document.getElementById('registerModal').style.display = 'flex';
-        }
-
-        // Close register modal
-        function closeRegisterModal() {
-            document.getElementById('registerModal').style.display = 'none';
-        }
-
-        // Check password strength
-        function checkPasswordStrength() {
-            const password = document.getElementById('register-password').value;
-            const strength = document.getElementById('password-strength');
-            const regExpWeak = /[a-z]/;
-            const regExpMedium = /[A-Z]/;
-            const regExpStrong = /[A-Z].*[0-9]/;
-
-            if (password.length < 8) {
-                strength.innerText = 'Password too short';
-                strength.className = 'weak';
-            } else if (regExpStrong.test(password)) {
-                strength.innerText = 'Strong password';
-                strength.className = 'strong';
-            } else if (regExpMedium.test(password)) {
-                strength.innerText = 'Medium password';
-                strength.className = 'medium';
-            } else {
-                strength.innerText = 'Weak password';
-                strength.className = 'weak';
-            }
-        }
-
-        // Handle login user
-        function loginUser() {
-    const username = document.getElementById('login-email').value;  // Assuming email serves as username
-    const password = document.getElementById('login-password').value;
-
-    if (!validateEmail(username)) {
-        document.getElementById('login-error').innerText = 'Please enter a valid email.';
-        return;
-    }
-
-    fetch('/api/auth/login/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': getCSRFToken(),
-        },
-        body: JSON.stringify({
-            username: username,  // Using username field
-            password: password
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.token) {
-            localStorage.setItem('token', data.token); // Save token
-            alert('Login successful!');
-            closeLoginModal();
-            // Redirect or take further action here if needed
-        } else {
-            document.getElementById('login-error').innerText = data.message;
-        }
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-        // Handle register user
-        function registerUser() {
-    const username = document.getElementById('register-name').value;  // Using username field
-    const email = document.getElementById('register-email').value;
-    const password = document.getElementById('register-password').value;
-
-    if (!validateEmail(email)) {
-        document.getElementById('register-error').innerText = 'Please enter a valid email.';
-        return;
-    }
-
-    if (password.length < 8) {
-        document.getElementById('register-error').innerText = 'Password must be at least 8 characters long.';
-        return;
-    }
-
-    fetch('/api/auth/register/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': getCSRFToken(),
-        },
-        body: JSON.stringify({
-            username: username,  // Using username field
-            email: email,
-            password: password
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.id) {  // Assuming a successful response contains a user ID
-            alert('Registration successful! Please log in.');
-            closeRegisterModal();
-        } else {
-            document.getElementById('register-error').innerText = data.message;
-        }
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-
-        // Validate email format
-        function validateEmail(email) {
-            const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            return regex.test(email);
-        }
-    </script>
 </body>
 
 </html>

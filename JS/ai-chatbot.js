@@ -1,3 +1,4 @@
+// AI Chatbot JavaScript
 const typingForm = document.querySelector(".typing-form");
 const chatContainer = document.querySelector(".chat-list");
 const suggestions = document.querySelectorAll(".suggestion");
@@ -5,14 +6,16 @@ const toggleThemeButton = document.querySelector("#theme-toggle-button");
 const deleteChatButton = document.querySelector("#delete-chat-button");
 let userMessage = null;
 let isResponseGenerating = false;
-const API_KEY = "AIzaSyAAkcbFV5ygCvOw9Sb3RajV4E3RGHK0RaM";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
+
+// Use a more reliable API endpoint
+const API_KEY = "AIzaSyCQaXBse3xnn21y0P0uXYJ5XSpYVfblx6Q";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 // Add loading animation
 const showLoadingAnimation = () => {
     const html = `
         <div class="message-content loading">
-            <img class="avatar" src="gemini.svg" alt="Gemini avatar">
+            <span class="avatar material-symbols-rounded">help</span>
             <div class="typing-indicator">
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -29,26 +32,33 @@ const showLoadingAnimation = () => {
 const generateAPIResponse = async (incomingMessageDiv) => {
     const textElement = incomingMessageDiv.querySelector(".typing-indicator");
     try {
+        // Add API key to the request headers
         const response = await fetch(API_URL, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "X-Goog-Api-Key": API_KEY
+            },
             body: JSON.stringify({
                 contents: [{
                     role: "user",
-                    parts: [{ text: userMessage }],
-                }],
+                    parts: [{ text: userMessage }]
+                }]
             }),
         });
 
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`API Error: ${errorData.error?.message || 'Unknown error'}`);
+        }
 
         const data = await response.json();
-        const apiResponse = data.candidates[0].content.parts[0].text;
+        const apiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I encountered an error. Please try again.';
 
         // Create the actual message content
         const messageContent = `
             <div class="message-content">
-                <img class="avatar" src="gemini.svg" alt="Gemini avatar">
+                <span class="avatar material-symbols-rounded">help</span>
                 <p class="text">${apiResponse}</p>
                 <span onClick="copyMessage(this)" class="icon material-symbols-rounded">content_copy</span>
             </div>
@@ -73,8 +83,8 @@ const generateAPIResponse = async (incomingMessageDiv) => {
         isResponseGenerating = false;
         const errorMessage = `
             <div class="message-content error">
-                <img class="avatar" src="gemini.svg" alt="Gemini avatar">
-                <p class="text">Sorry, I encountered an error. Please try again.</p>
+                <span class="avatar material-symbols-rounded">error</span>
+                <p class="text">${error.message}</p>
             </div>
         `;
         incomingMessageDiv.innerHTML = errorMessage;

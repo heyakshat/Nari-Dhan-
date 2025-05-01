@@ -6,6 +6,15 @@
   <title>Investment Tools</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #673AB7;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --dark-bg: #1a1a1a;
+      --transition: all 0.3s ease;
+    }
+
     @keyframes fadeOut {
       0% {
         opacity: 1;
@@ -28,6 +37,18 @@
       }
     }
 
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
     /* Page exit animation */
     .page-exit {
       animation: fadeOut 0.5s ease forwards;
@@ -36,6 +57,63 @@
     /* Drop animation for sections */
     .animate-drop {
       animation: dropIn 0.5s ease forwards;
+    }
+
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    .card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 1rem;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-footer {
+      padding: 1rem;
+      border-top: 1px solid #eee;
+      background: #f8f9fa;
+    }
+
+    .button {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .button.primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .button.secondary {
+      background: var(--secondary-color);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>

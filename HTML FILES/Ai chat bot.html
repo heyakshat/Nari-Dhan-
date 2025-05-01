@@ -1,56 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="../css/styles(AI CHatBot).css" />
-  <script src="/JS/script.js" defer></script>
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Chat Bot</title>
+    <title>AI Chat Bot - NariDhan</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="styles(AI CHatBot).css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="sidebar">
-        <h3>Search History</h3>
-        <ul>
-          <li>Tell Me How To Start Investment</li>
-          <li>Can I Invest 2000</li>
-          <li>Budget Guide</li>
-          <li>Nari Dhan Please Provide Me Budgeting Guide</li>
-        </ul>
-      </div>
-      <div class="content">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #673AB7;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #1a1a1a;
+            --transition: all 0.3s ease;
+            --avatar-size: 40px;
+            --message-padding: 15px;
+            --message-radius: 20px;
+            --typing-dot-size: 8px;
+        }
 
-   <h1>Start Chat With Our AI Bot...</h1>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    <ul class="suggestion-list">
-        <li class="suggestion">
-          <h4 class="text">How do I start investing with a small amount of money?</h4>
-          <span class="icon material-symbols-rounded">draw</span>
-        </li>
-        <li class="suggestion">
-          <h4 class="text">What is SIP (Systematic Investment Plan), and how does it work?</h4>
-          <span class="icon material-symbols-rounded">lightbulb</span>
-        </li>
-        <li class="suggestion">
-          <h4 class="text">Can you explain the difference between ETFs and mutual funds?</h4>
-          <span class="icon material-symbols-rounded">explore</span>
-        </li>
-        <li class="suggestion">
-          <h4 class="text">How can I increase my savings rate without compromising my lifestyle?</h4>
-          <span class="icon material-symbols-rounded">code</span>
-        </li>
-      </ul>
-    </header>
+        body {
+            background: var(--light-bg);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
 
-  <div class="chat-list"></div>
+        .chat-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 100vh;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            animation: slideIn 0.5s ease forwards;
+        }
 
- <div class="typing-area">
-    <form action="#" class="typing-form">
-      <div class="input-wrapper">
-        <input type="text" placeholder="Enter a prompt here" class="typing-input" required />
-        <button id="send-message-button" class="icon material-symbols-rounded">send</button>
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .chat-header {
+            padding: 25px;
+            background: var(--primary-color);
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .chat-header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .chat-header .nav-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .chat-header .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chat-header .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .chat-header .nav-links a:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .chat-header .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .chat-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+        }
+
+        .message {
+            max-width: 80%;
+            border-radius: var(--message-radius);
+            padding: var(--message-padding);
+            margin-bottom: 25px;
+            position: relative;
+            animation: messageFadeIn 0.3s ease forwards;
+        }
+
+        @keyframes messageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .outgoing {
+            margin-left: auto;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--message-radius) var(--message-radius) 0 var(--message-radius);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+        }
+
+        .incoming {
+            background: #f0f2f5;
+            color: var(--text-color);
+            border-radius: var(--message-radius) var(--message-radius) var(--message-radius) 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: var(--avatar-size);
+            height: var(--avatar-size);
+            border-radius: 50%;
+            background: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .text {
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+            opacity: 0;
+            animation: typingFadeIn 0.3s ease forwards;
+        }
+
+        @keyframes typingFadeIn {
+            to { opacity: 1; }
+        }
+
+        .dot {
+            width: var(--typing-dot-size);
+            height: var(--typing-dot-size);
+            background: white;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+
+        .dot:nth-child(2) { animation-delay: -0.3s; }
+        .dot:nth-child(3) { animation-delay: -0.6s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+        }
+
+        .typing-area {
+            padding: 25px;
+            border-top: 1px solid #eee;
+            background: var(--light-bg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .typing-form {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .typing-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid #eee;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .typing-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 15px rgba(76, 175, 80, 0.1);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+            color: var(--primary-color);
+        }
+
+        .icon:hover::before {
+            left: 100%;
+        }
+
+        .error {
+            background: #ffebee !important;
+            color: #c62828 !important;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(76, 175, 80, 0.05);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                height: calc(100vh - 60px);
+            }
+
+            .chat-header {
+                padding: 15px;
+            }
+
+            .chat-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+
+            .typing-area {
+                padding: 15px;
+            }
+
+            .typing-input {
+                padding: 12px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chat-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .message {
+                max-width: 95%;
+            }
+
+            .typing-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .action-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>AI Chat Bot</h1>
+            <div class="nav-links">
+                <a href="/Nari Dhan Project/HTML FILES/FinancialHub.html">Home</a>
+                <a href="/Nari Dhan Project/HTML FILES/Budget.html">Budget</a>
+                <a href="/Nari Dhan Project/HTML FILES/financial edu .html">Education</a>
+                <a href="/Nari Dhan Project/HTML FILES/aboutus.html">About</a>
+            </div>
+        </header>
+
+        <main class="chat-content">
+            <div class="chat-list"></div>
+        </main>
+
+        <div class="typing-area">
+            <form action="#" class="typing-form">
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Type your message..." class="typing-input" required />
+                    <button type="submit" class="icon material-symbols-rounded">send</button>
+                </div>
+                <div class="action-buttons">
+                    <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
+                    <span id="delete-chat-button" class="icon material-symbols-rounded">delete</span>
+                </div>
+            </form>
+            <div class="disclaimer">
+                <p>Chatbot may display inaccurate info. It is still in training phase.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/ai-chatbot.js"></script>
+</body>
       </div>
       <div class="action-buttons">
         <span id="theme-toggle-button" class="icon material-symbols-rounded">light_mode</span>
